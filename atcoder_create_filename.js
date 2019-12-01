@@ -5,6 +5,7 @@
 // @author       azennto
 // @match        https://atcoder.jp/contests/*/tasks/*
 // @grant        none
+// @namespace    https://github.com/azenntoyuchi
 // ==/UserScript==
 
 
