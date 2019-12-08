@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         atcoder_create_filename
 // @version      0.1
-// @description  It create good filename of atcoder.
+// @description  It'll be generate the good mane of the file for AtCoder.
 // @author       azennto
 // @match        https://atcoder.jp/contests/*/tasks/*
 // @grant        none
