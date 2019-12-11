@@ -40,7 +40,7 @@
 
   var button = document.createElement('button');
   button.setAttribute('id', 'create_filename_button');
-  button.setAttribute('onclick', `copy_filename(${filename_str})`);
+  button.setAttribute('onclick', `copy_filename('${filename_str}')`);
   button.textContent = 'filename copy';
   element_main[1].insertBefore(button,element_main[1].firstChild);
 })();
