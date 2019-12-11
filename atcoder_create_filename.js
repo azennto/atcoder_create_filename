@@ -19,7 +19,7 @@
     `#create_filename_button {
        padding: 10px 20px;
        position: absolute;
-       left: 87%;
+       left: 87.2%;
        top: 60px;
      }`;
   document.head.appendChild(style);
