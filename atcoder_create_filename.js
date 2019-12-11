@@ -1,3 +1,4 @@
+
 // ==UserScript==
 // @name         atcoder_create_filename
 // @version      0.1
@@ -8,44 +9,37 @@
 // @namespace    https://github.com/azenntoyuchi
 // ==/UserScript==
 
-
-
 //インターフェースの作成
-(function() {
-  var element_main = document.getElementsByClassName("col-sm-12");
-  var url = location.href;
-  var filename_str= "'"+ url.split("/")[6] + ".cpp'";
-
-  //ボタンのCSSをheadにぶちこむ
-  var style = document.createElement("style");
-  style.setAttribute("type", "text/css");
+(() => {
+  const filename_str= `${location.href.split('/')[6]}.cpp`;
+  const style = document.createElement('style');
+  style.setAttribute('type', 'text/css');
   style.textContent =
-    "#create_filename_button{\n"+
-      "position: absolute;\n"+
-      "left: 87%;\n"+
-      "padding: 10px 20px;\n"+
-    "}";
+    `#create_filename_button {
+       padding: 10px 20px;
+       position: absolute;
+       left: 87%;
+       top: 60px;
+     }`;
   document.head.appendChild(style);
 
-  //jsをheadにぶちこむ
-  var script = document.createElement("script");
-  script.setAttribute("type", "text/javascript");
+  const script = document.createElement('script');
+  script.setAttribute('type', 'text/javascript');
   script.textContent =
-    "function copy_filename(str){\n"+
-      "var copyFrom = document.createElement('textarea');\n"+
-      "copyFrom.textContent = str;\n"+
-      "var bodyElm = document.getElementsByTagName('body')[0];\n"+
-      "bodyElm.appendChild(copyFrom);\n"+
-      "copyFrom.select();\n"+
-      "document.execCommand('copy');\n"+
-      "bodyElm.removeChild(copyFrom);\n"+
-    "}";
+    `const copy_filename = str => {
+       const copyFrom = document.createElement('textarea');
+       copyFrom.textContent = str;
+       const bodyElm = document.getElementsByTagName('body')[0];
+       bodyElm.appendChild(copyFrom);
+       copyFrom.select();
+       document.execCommand('copy');
+       bodyElm.removeChild(copyFrom);
+    }`;
   document.head.appendChild(script);
 
-  //ボタンおしたらfilename_strをクリップボードに保存したい
-  var button = document.createElement("button");
-  button.setAttribute("id", "create_filename_button");
-  button.setAttribute("onclick","copy_filename("+filename_str+")");
-  button.textContent = "filename copy";
+  var button = document.createElement('button');
+  button.setAttribute('id', 'create_filename_button');
+  button.setAttribute('onclick', `copy_filename(${filename_str})`);
+  button.textContent = 'filename copy';
   element_main[1].insertBefore(button,element_main[1].firstChild);
 })();
