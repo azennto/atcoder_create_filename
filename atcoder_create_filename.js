@@ -11,7 +11,7 @@
 //インターフェースの作成
 (() => {
   const element_main = document.getElementsByClassName('col-sm-12');
-  const filename_str= `'${location.href.split('/')[6]}.cpp`; 
+  const filename_str= `${location.href.split('/')[6]}.cpp`; 
   const style = document.createElement('style');
   style.setAttribute('type', 'text/css');
   style.textContent =
